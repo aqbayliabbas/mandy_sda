@@ -60,17 +60,16 @@ export default function About() {
                         className="relative aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden bg-gray-50 border border-gray-200 shadow-2xl"
                     >
                         <video
-                            src="/mandyy.mp4"
-                            className="absolute inset-0 w-full h-full object-cover"
+                            src="/mandy_ebook.mp4"
+                            className="absolute inset-0 w-full h-full object-cover rounded-3xl"
                             autoPlay
                             muted
                             loop
                             playsInline
-                            preload="none"
+                            controls
+                            preload="metadata"
                             poster="/photos/photo (5).webp"
-                            disablePictureInPicture
                         />
-                        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
                     </motion.div>
                 </div>
             </div>
