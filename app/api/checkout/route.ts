@@ -1,11 +1,21 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-    apiVersion: "2024-12-18" as any, // Use latest API version
-});
-
 export async function POST(req: Request) {
+    const stripeKey = process.env.STRIPE_SECRET_KEY;
+
+    if (!stripeKey) {
+        console.error("STRIPE_SECRET_KEY is missing");
+        return NextResponse.json(
+            { error: "Internal Server Error: Missing Stripe Configuration" },
+            { status: 500 }
+        );
+    }
+
+    const stripe = new Stripe(stripeKey, {
+        apiVersion: "2025-12-15.clover" as any, // Using 'as any' to avoid potential strict type mismatches if the version updates again, but targeting the reported version.
+    });
+
     try {
         const body = await req.json();
         const { name, firstName, email, address, postalCode, city, country } = body;
