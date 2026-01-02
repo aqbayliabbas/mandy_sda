@@ -1,8 +1,13 @@
 "use client";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Mail } from "lucide-react";
+import Link from "next/link";
+import CheckoutForm from "./CheckoutForm";
 
 export default function Offers() {
+    const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+
     return (
         <section id="guide" className="py-32 bg-gray-50 relative overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
@@ -38,7 +43,10 @@ export default function Offers() {
                             ))}
                         </ul>
 
-                        <button className="w-full py-4 bg-gray-900 text-white rounded-2xl font-bold hover:bg-gray-800 transition-all transform active:scale-95 shadow-xl">
+                        <button
+                            onClick={() => setIsCheckoutOpen(true)}
+                            className="w-full py-4 bg-gray-900 text-white rounded-2xl font-bold hover:bg-gray-800 transition-all transform active:scale-95 shadow-xl"
+                        >
                             Acheter Maintenant
                         </button>
                     </motion.div>
@@ -71,13 +79,19 @@ export default function Offers() {
                             ))}
                         </ul>
 
-                        <button className="w-full py-4 bg-white text-gray-900 rounded-2xl font-bold hover:bg-gray-100 transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                        <Link
+                            href="mailto:contact@mandy-sda.com"
+                            className="w-full py-4 bg-white text-gray-900 rounded-2xl font-bold hover:bg-gray-100 transition-all transform active:scale-95 flex items-center justify-center gap-2"
+                        >
                             <Mail className="w-5 h-5 text-gold-600" />
                             Me Contacter
-                        </button>
+                        </Link>
                     </motion.div>
                 </div>
             </div>
+
+            <CheckoutForm isOpen={isCheckoutOpen} onClose={() => setIsCheckoutOpen(false)} />
         </section>
     );
 }
+
