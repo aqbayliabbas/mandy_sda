@@ -1,8 +1,9 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
-const images = Array.from({ length: 17 }, (_, i) => `/photos/photo (${i + 1}).jpg`);
+const images = Array.from({ length: 17 }, (_, i) => `/photos/photo (${i + 1}).webp`);
 
 export default function Gallery() {
     const containerRef = useRef(null);
@@ -28,12 +29,14 @@ export default function Gallery() {
                     {[...images, ...images].slice(0, 15).map((src, i) => (
                         <div
                             key={`row1-${i}`}
-                            className="w-32 h-20 sm:w-64 sm:h-40 md:w-96 md:h-64 rounded-xl flex-shrink-0 overflow-hidden"
+                            className="w-32 h-20 sm:w-64 sm:h-40 md:w-96 md:h-64 rounded-xl flex-shrink-0 overflow-hidden relative"
                         >
-                            <img
+                            <Image
                                 src={src}
                                 alt="Algerie"
-                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 hover:scale-110 cursor-pointer"
+                                fill
+                                sizes="(max-width: 640px) 128px, (max-width: 768px) 256px, 384px"
+                                className="object-cover grayscale hover:grayscale-0 transition-all duration-500 hover:scale-110 cursor-pointer"
                             />
                         </div>
                     ))}
@@ -44,12 +47,14 @@ export default function Gallery() {
                     {[...images, ...images].slice(15, 30).map((src, i) => (
                         <div
                             key={`row2-${i}`}
-                            className="w-32 h-20 sm:w-64 sm:h-40 md:w-96 md:h-64 rounded-xl flex-shrink-0 overflow-hidden"
+                            className="w-32 h-20 sm:w-64 sm:h-40 md:w-96 md:h-64 rounded-xl flex-shrink-0 overflow-hidden relative"
                         >
-                            <img
+                            <Image
                                 src={src}
                                 alt="Algerie"
-                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 hover:scale-110 cursor-pointer"
+                                fill
+                                sizes="(max-width: 640px) 128px, (max-width: 768px) 256px, 384px"
+                                className="object-cover grayscale hover:grayscale-0 transition-all duration-500 hover:scale-110 cursor-pointer"
                             />
                         </div>
                     ))}

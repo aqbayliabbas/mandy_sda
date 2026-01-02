@@ -1,6 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, PlayCircle } from "lucide-react";
 
 export default function Hero() {
@@ -27,9 +28,16 @@ export default function Hero() {
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.5 + i * 0.1 }}
-                            className="w-full aspect-[4/5] rounded-xl overflow-hidden bg-gray-100 shadow-lg rotate-[-2deg]"
+                            className="w-full aspect-[4/5] rounded-xl overflow-hidden bg-gray-100 shadow-lg rotate-[-2deg] relative"
                         >
-                            <img src={`/photos/photo (${n}).jpg`} className="w-full h-full object-cover" alt="" />
+                            <Image
+                                src={`/photos/photo (${n}).webp`}
+                                fill
+                                className="object-cover"
+                                alt=""
+                                sizes="(max-width: 768px) 33vw, 25vw"
+                                priority={i < 2}
+                            />
                         </motion.div>
                     ))}
                 </div>
@@ -45,9 +53,16 @@ export default function Hero() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.5 + i * 0.1 }}
-                            className="w-full aspect-[4/5] rounded-xl overflow-hidden bg-gray-100 shadow-lg rotate-[2deg]"
+                            className="w-full aspect-[4/5] rounded-xl overflow-hidden bg-gray-100 shadow-lg rotate-[2deg] relative"
                         >
-                            <img src={`/photos/photo (${n}).jpg`} className="w-full h-full object-cover" alt="" />
+                            <Image
+                                src={`/photos/photo (${n}).webp`}
+                                fill
+                                className="object-cover"
+                                alt=""
+                                sizes="(max-width: 768px) 33vw, 25vw"
+                                priority={i < 2}
+                            />
                         </motion.div>
                     ))}
                 </div>
@@ -64,9 +79,12 @@ export default function Hero() {
                     className="mb-8 relative"
                 >
                     <div className="absolute inset-0 bg-gold-400/20 blur-2xl rounded-full" />
-                    <img
-                        src="/mandy_memoji.png"
+                    <Image
+                        src="/mandy_memoji.webp"
                         alt="Mandy Memoji"
+                        width={128}
+                        height={128}
+                        priority
                         className="relative w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-2xl"
                     />
                 </motion.div>

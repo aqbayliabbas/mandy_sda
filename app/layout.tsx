@@ -10,6 +10,9 @@ const inter = Inter({
 export const metadata: Metadata = {
     title: "Mandy Saada - Guide Voyage Algérie",
     description: "Découvrez l'Algérie avec Mandy Saada. Guide de voyage exclusif, conseils et bons plans.",
+    icons: {
+        icon: "/mandy_memoji.webp",
+    },
 };
 
 export default function RootLayout({

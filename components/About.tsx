@@ -66,6 +66,8 @@ export default function About() {
                             muted
                             loop
                             playsInline
+                            preload="none"
+                            poster="/photos/photo (5).webp"
                             disablePictureInPicture
                         />
                         <div className="absolute inset-0 bg-black/5 pointer-events-none" />
