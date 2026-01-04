@@ -149,7 +149,7 @@ export default function MediaKit() {
                             transition={{ delay: 0.3 }}
                             className="text-xl md:text-2xl text-gray-500 font-normal max-w-2xl mx-auto mb-12"
                         >
-                            Créatrice de contenu lifestyle & voyages.
+                            Créatrice de contenu lifestyle && voyages.
                             <br className="hidden md:block" />
                             <span className="text-gray-900">+980K abonnés</span> sur les réseaux.
                         </motion.p>

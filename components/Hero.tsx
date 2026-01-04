@@ -19,7 +19,7 @@ export default function Hero() {
                 {/* Faded Gallery Sides */}
                 {/* Left Column */}
                 <div
-                    className="flex absolute inset-y-0 left-0 w-1/3 md:w-1/4 max-w-[300px] flex-col gap-4 p-4 opacity-25 z-0 overflow-visible pointer-events-none"
+                    className="hidden md:flex absolute inset-y-0 left-0 w-1/3 md:w-1/4 max-w-[300px] flex-col gap-4 p-4 opacity-25 z-0 overflow-visible pointer-events-none"
                     style={{ maskImage: 'linear-gradient(to right, black, transparent)' }}
                 >
                     {[1, 3, 5, 11].map((n, i) => (
@@ -44,7 +44,7 @@ export default function Hero() {
 
                 {/* Right Column */}
                 <div
-                    className="flex absolute inset-y-0 right-0 w-1/3 md:w-1/4 max-w-[300px] flex-col gap-4 p-4 opacity-25 z-0 overflow-visible pointer-events-none"
+                    className="hidden md:flex absolute inset-y-0 right-0 w-1/3 md:w-1/4 max-w-[300px] flex-col gap-4 p-4 opacity-25 z-0 overflow-visible pointer-events-none"
                     style={{ maskImage: 'linear-gradient(to left, black, transparent)' }}
                 >
                     {[2, 4, 6, 12].map((n, i) => (
@@ -70,7 +70,7 @@ export default function Hero() {
 
             <motion.div
                 style={{ y, opacity }}
-                className="relative z-10 container mx-auto px-6 text-center flex flex-col items-center"
+                className="relative z-10 container mx-auto px-6 text-center flex flex-col items-center -mt-24 md:-mt-32"
             >
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
