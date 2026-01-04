@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Mail } from "lucide-react";
+import { Check } from "lucide-react";
 import Link from "next/link";
 import CheckoutForm from "./CheckoutForm";
 
@@ -80,11 +80,10 @@ export default function Offers() {
                         </ul>
 
                         <Link
-                            href="mailto:contact@mandy-sda.com"
+                            href="/kit-media"
                             className="w-full py-4 bg-white text-gray-900 rounded-2xl font-bold hover:bg-gray-100 transition-all transform active:scale-95 flex items-center justify-center gap-2"
                         >
-                            <Mail className="w-5 h-5 text-gold-600" />
-                            Me Contacter
+                            Découvrir mes Offres
                         </Link>
                     </motion.div>
                 </div>
