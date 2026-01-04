@@ -76,9 +76,15 @@ const unitPrices = [
 
 const photos = [
     "/photos/photo (1).webp",
+    "/photos/photo (2).webp",
     "/photos/photo (4).webp",
     "/photos/photo (5).webp",
+    "/photos/photo (6).webp",
     "/photos/photo (7).webp",
+    "/photos/photo (8).webp",
+    "/photos/photo (9).webp",
+    "/photos/photo (10).webp",
+    "/photos/photo (11).webp",
 ];
 
 export default function MediaKit() {
@@ -132,7 +138,7 @@ export default function MediaKit() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="text-5xl md:text-7xl font-bold text-gray-900 tracking-tight mb-6"
+                            className="text-5xl md:text-7xl font-bold text-gray-900 tracking-[-0.06em] mb-6"
                         >
                             Mandy SDA
                         </motion.h1>
@@ -174,27 +180,31 @@ export default function MediaKit() {
                 </div>
             </section>
 
-            {/* Photo Grid */}
-            <section className="py-12 overflow-hidden">
-                <div className="max-w-[1200px] mx-auto px-6">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {photos.map((photo, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
-                                className="aspect-[3/4] rounded-3xl overflow-hidden relative group"
-                            >
-                                <Image
-                                    src={photo}
-                                    alt={`Photo ${i + 1}`}
-                                    fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </motion.div>
+            {/* Photo Slider - Marquee Style */}
+            <section className="py-20 overflow-hidden relative">
+                {/* Side Fades - Apple Style */}
+                <div className="absolute inset-y-0 left-0 w-32 md:w-64 bg-gradient-to-r from-[#fbfbfd] via-[#fbfbfd]/80 to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-32 md:w-64 bg-gradient-to-l from-[#fbfbfd] via-[#fbfbfd]/80 to-transparent z-10 pointer-events-none" />
+
+                <div className="flex overflow-hidden">
+                    <div className="flex animate-scroll-photos whitespace-nowrap gap-6 py-4">
+                        {[...Array(2)].map((_, idx) => (
+                            <div key={idx} className="flex gap-6">
+                                {photos.map((photo, i) => (
+                                    <div
+                                        key={i}
+                                        className="w-[300px] md:w-[400px] aspect-[3/4] rounded-[2.5rem] overflow-hidden relative group flex-shrink-0 shadow-2xl shadow-gray-200/50"
+                                    >
+                                        <Image
+                                            src={photo}
+                                            alt={`Photo ${i + 1}`}
+                                            fill
+                                            className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    </div>
+                                ))}
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -212,7 +222,7 @@ export default function MediaKit() {
                         <p className="text-gold-400 font-medium text-sm tracking-widest uppercase mb-4">
                             Audience
                         </p>
-                        <h2 className="text-5xl md:text-7xl font-bold tracking-tight">
+                        <h2 className="text-5xl md:text-7xl font-bold tracking-[-0.06em]">
                             Des chiffres qui<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">
                                 impressionnent.
@@ -232,7 +242,7 @@ export default function MediaKit() {
                             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
                             <div className="relative z-10">
                                 <InstagramLogo weight="fill" className="w-12 h-12 mb-6 opacity-90" />
-                                <div className="text-7xl md:text-8xl font-black mb-2 tracking-tight">273K</div>
+                                <div className="text-7xl md:text-8xl font-black mb-2 tracking-[-0.07em]">273K</div>
                                 <p className="text-xl font-medium text-white/80">Followers Instagram</p>
                                 <div className="mt-8 flex gap-6">
                                     <div>
@@ -258,7 +268,7 @@ export default function MediaKit() {
                             <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
                             <div className="relative z-10">
                                 <TiktokLogo weight="fill" className="w-12 h-12 mb-6 opacity-90" />
-                                <div className="text-7xl md:text-8xl font-black mb-2 tracking-tight">713K</div>
+                                <div className="text-7xl md:text-8xl font-black mb-2 tracking-[-0.07em]">713K</div>
                                 <p className="text-xl font-medium text-white/80">Followers TikTok</p>
                                 <div className="mt-8 flex gap-6">
                                     <div>
@@ -334,7 +344,7 @@ export default function MediaKit() {
                             <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-4">
                                 À propos
                             </p>
-                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-8 leading-tight">
+                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-[-0.06em] mb-8 leading-tight">
                                 Créatrice de contenu passionnée par l&apos;authenticité.
                             </h2>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed mb-10">
@@ -391,7 +401,7 @@ export default function MediaKit() {
                     <div className="flex flex-col md:flex-row justify-between items-end gap-8">
                         <div>
                             <p className="text-gold-400 font-medium text-sm tracking-[0.3em] uppercase mb-4">Portefeuille</p>
-                            <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter leading-none mb-6">
+                            <h2 className="text-5xl md:text-7xl font-bold text-white tracking-[-0.08em] leading-none mb-6">
                                 Collaborations
                             </h2>
                             <p className="text-xl text-gray-400 max-w-xl">
@@ -420,7 +430,7 @@ export default function MediaKit() {
                             {[...Array(2)].map((_, idx) => (
                                 <div key={idx} className="flex items-center gap-16 px-8">
                                     {["Air Algérie", "Riwaya Travel", "Jil Voyage", "Tiffanie Draria", "Skin Bloom", "Le Carré", "La Table de Yemma", "Bchachou Travel", "Signature"].map((brand, i) => (
-                                        <span key={i} className="text-4xl md:text-6xl font-black text-white/20 tracking-tighter hover:text-gold-500/50 transition-colors cursor-default select-none uppercase">
+                                        <span key={i} className="text-4xl md:text-6xl font-black text-white/20 tracking-[-0.07em] hover:text-gold-500/50 transition-colors cursor-default select-none uppercase">
                                             {brand}
                                         </span>
                                     ))}
@@ -446,14 +456,14 @@ export default function MediaKit() {
                                     <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-gold-500/20 group-hover:rotate-6 transition-all duration-500">
                                         <collab.icon weight="fill" className="w-7 h-7 text-white group-hover:text-gold-400 transition-colors" />
                                     </div>
-                                    <h3 className="text-2xl font-bold text-white mb-6 tracking-tight flex items-center gap-2">
+                                    <h3 className="text-2xl font-bold text-white mb-6 tracking-[-0.04em] flex items-center gap-2">
                                         {collab.sector}
                                     </h3>
                                     <ul className="space-y-4">
                                         {collab.brands.map((brand, j) => (
                                             <li key={j} className="flex items-center gap-3 text-gray-400 group-hover:text-gray-200 transition-colors">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-gold-500/50" />
-                                                <span className="text-lg font-medium tracking-tight leading-none">{brand}</span>
+                                                <span className="text-lg font-medium tracking-[-0.04em] leading-none">{brand}</span>
                                             </li>
                                         ))}
                                     </ul>
@@ -471,7 +481,10 @@ export default function MediaKit() {
                     .animate-scroll {
                         animation: scroll 40s linear infinite;
                     }
-                    .animate-scroll:hover {
+                    .animate-scroll-photos {
+                        animation: scroll 80s linear infinite;
+                    }
+                    .animate-scroll:hover, .animate-scroll-photos:hover {
                         animation-play-state: paused;
                     }
                 `}</style>
@@ -487,7 +500,7 @@ export default function MediaKit() {
                         className="text-center mb-24"
                     >
                         <p className="text-gold-600 font-semibold text-sm tracking-[0.3em] uppercase mb-4">Methodologie</p>
-                        <h2 className="text-5xl md:text-7xl font-bold text-gray-900 tracking-tighter mb-6">
+                        <h2 className="text-5xl md:text-7xl font-bold text-gray-900 tracking-[-0.08em] mb-6">
                             Le Processus
                         </h2>
                         <div className="w-20 h-1 bg-gold-500 mx-auto rounded-full" />
@@ -519,7 +532,7 @@ export default function MediaKit() {
                                     </div>
 
                                     {/* Content */}
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight group-hover:text-gold-600 transition-colors">
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-[-0.05em] group-hover:text-gold-600 transition-colors">
                                         {step.title}
                                     </h3>
                                     <p className="text-gray-500 text-lg leading-relaxed max-w-xs mx-auto md:mx-0">
@@ -556,7 +569,7 @@ export default function MediaKit() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-[-0.06em] mb-4">
                             Tarifs
                         </h2>
                         <p className="text-xl text-gray-500">
@@ -629,7 +642,7 @@ export default function MediaKit() {
                             <span className="px-4 py-1.5 bg-gold-50 text-gold-700 text-xs font-bold uppercase rounded-full tracking-widest border border-gold-100 mb-4 inline-block">
                                 Flexibilité
                             </span>
-                            <h3 className="text-3xl font-bold text-gray-900 tracking-tight">À la carte</h3>
+                            <h3 className="text-3xl font-bold text-gray-900 tracking-[-0.05em]">À la carte</h3>
                             <p className="text-gray-500 mt-2">Choisissez précisément les services dont vous avez besoin.</p>
                         </div>
 
@@ -660,7 +673,7 @@ export default function MediaKit() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight mb-8">
+                        <h2 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-[-0.06em] mb-8">
                             Prêt à collaborer ?
                         </h2>
                         <p className="text-xl text-gray-500 mb-12">
